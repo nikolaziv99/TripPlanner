@@ -22,6 +22,11 @@ export class TripController {
     return this.tripService.findAll();
   }
 
+  @Get('user/:userId')
+  async findAllByUserId(@Param('userId') userId: number): Promise<Trip[]> {
+    return this.tripService.getAllByUserId(userId);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Trip> {
     return this.tripService.findOne(id);

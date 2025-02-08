@@ -18,7 +18,7 @@ export class TripService {
   ) {}
 
   async createTrip(createTripDto: CreateTripDto): Promise<Trip> {
-    const { userId, destinationId, startDate, endDate } = createTripDto;
+    const { userId, destinationId, startDate, endDate, homeLatitude, homeLongitude, homeAddress } = createTripDto;
 
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) throw new NotFoundException('User not found');
@@ -31,6 +31,9 @@ export class TripService {
       destination,
       startDate,
       endDate,
+      homeLatitude,
+      homeLongitude,
+      homeAddress
     });
 
     return this.tripRepository.save(trip);
@@ -43,6 +46,10 @@ export class TripService {
 
   async findAll(): Promise<Trip[]> {
     return this.tripRepository.find();
+  }
+
+  async getAllByUserId(userId: number): Promise<Trip[]> {
+    return this.tripRepository.find({ where: { user: { id: userId } } });
   }
 
   async findOne(id: number): Promise<Trip> {

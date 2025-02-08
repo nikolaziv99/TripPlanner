@@ -18,4 +18,13 @@ export class Trip {
 
   @Column({ type: 'timestamp' })
   endDate: Date;
+
+  @Column({ type: 'decimal', precision: 10, scale: 6, nullable: true })
+  homeLatitude: number;
+
+  @Column({ type: 'decimal', precision: 10, scale: 6, nullable: true })
+  homeLongitude: number;
+
+  @Column({ type: 'text', nullable: true })
+  homeAddress: string;
 }

@@ -5,6 +5,8 @@ import { DestinationModule } from './destination/destination.module';
 import { ActivityModule } from './activity/activity.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { BudgetModule } from './budget/budget.module';
+import { ExpenseModule } from './expense/expense.module';
 
 @Module({
   imports: [
@@ -22,7 +24,9 @@ import { AuthModule } from './auth/auth.module';
     DestinationModule,
     ActivityModule,
     UserModule,
-    AuthModule
+    AuthModule,
+    BudgetModule,
+    ExpenseModule
   ],
 })
 export class AppModule {}

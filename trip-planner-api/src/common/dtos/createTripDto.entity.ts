@@ -14,4 +14,10 @@ export class CreateTripDto {
 
   @IsISO8601()
   endDate: string;
+
+  homeLatitude: number;
+
+  homeLongitude: number;
+
+  homeAddress: string;
 }
